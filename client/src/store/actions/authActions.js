@@ -22,6 +22,7 @@ export const loadMe = () => async (dispatch, getState) => {
 
   try {
     const options = attachTokenToHeaders(getState);
+    console.log("=======>", options)
     const response = await axios.get('/api/users/me', options);
 
     dispatch({
@@ -31,7 +32,7 @@ export const loadMe = () => async (dispatch, getState) => {
   } catch (err) {
     dispatch({
       type: ME_FAIL,
-      payload: { error: err.response.data.message },
+      payload: { error: err.message },
     });
   }
 };
@@ -40,7 +41,7 @@ export const loginUserWithEmail = (formData, history) => async (dispatch, getSta
   dispatch({ type: LOGIN_WITH_EMAIL_LOADING });
   try {
     const response = await axios.post('/auth/login', formData);
-
+    localStorage.setItem('token', response.data.token)
     dispatch({
       type: LOGIN_WITH_EMAIL_SUCCESS,
       payload: { token: response.data.token, me: response.data.me },
@@ -125,7 +126,7 @@ function deleteAllCookies() {
 }
 
 export const attachTokenToHeaders = (getState) => {
-  const token = getState().auth.token;
+  const token = getState().auth.token || localStorage.getItem('token');
 
   const config = {
     headers: {
@@ -134,7 +135,7 @@ export const attachTokenToHeaders = (getState) => {
   };
 
   if (token) {
-    config.headers['x-auth-token'] = token;
+    config.headers['Authorization'] = `Bearer ${token}`;
   }
 
   return config;

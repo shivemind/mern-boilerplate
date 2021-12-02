@@ -9,7 +9,12 @@ const requireLocalAuth = (req, res, next) => {
       return res.status(422).send(info);
     }
     req.user = user;
-    next();
+    req.logIn(user, { session: false }, (err) => {
+      if(err){
+        res.send(err)
+      }
+      next()
+    })
   })(req, res, next);
 };
 

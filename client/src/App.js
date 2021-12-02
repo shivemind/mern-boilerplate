@@ -12,6 +12,12 @@ import Users from './pages/Users/Users';
 import Admin from './pages/Admin/Admin';
 import NotFound from './pages/NotFound/NotFound';
 
+
+import Record from './pages/Record/record';
+import "./app.css";
+
+
+
 import Loader from './components/Loader/Loader';
 
 import { logInUserWithOauth, loadMe } from './store/actions/authActions';
@@ -39,9 +45,12 @@ const App = ({ logInUserWithOauth, auth, loadMe }) => {
   }, [auth.isAuthenticated, auth.token, loadMe, auth.isLoading, auth.appLoaded]);
 
   return (
+    
     <>
       {auth.appLoaded ? (
         <Switch>
+          <Route exact path="/record" component={Record} />
+          {/* <Route exact path="/story" component={Story} /> */}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/users" component={Users} />

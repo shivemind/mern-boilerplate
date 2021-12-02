@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
+
 import App from './App';
 import './index.css';
 import rootReducer from './store/reducers';
@@ -23,6 +24,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
+  
   <Provider store={store}>
     <Router>
       <Switch>

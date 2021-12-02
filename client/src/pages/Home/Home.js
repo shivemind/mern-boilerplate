@@ -35,7 +35,7 @@ const Home = ({ auth, reseedDatabase }) => {
         {!auth.isAuthenticated ? (
           <div>
             <p>
-              Welcome guest!{' '}
+              Welcomin guest!{' '}
               <Link className="bold" to="/login">
                 Log in
               </Link>{' '}
@@ -49,7 +49,7 @@ const Home = ({ auth, reseedDatabase }) => {
         ) : (
           <>
             <p>
-              Welcome <span className="name">{auth.me.name}</span>!
+              Welcomin <span className="name">{auth.me.name}</span>!
             </p>
             <ReseedMessage handleReseed={handleReseed} />
             <MessageForm />
