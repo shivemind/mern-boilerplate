@@ -16,6 +16,12 @@ import NotFound from './pages/NotFound/NotFound';
 import Record from './pages/Record/record';
 import "./app.css";
 
+import Lottie from 'react-lottie';
+import animationData from './lotties/christmas-one.json';
+import Story from './pages/Story/story';
+
+import Text from './pages/Text/christmas-one-text';
+
 
 
 import Loader from './components/Loader/Loader';
@@ -49,8 +55,9 @@ const App = ({ logInUserWithOauth, auth, loadMe }) => {
     <>
       {auth.appLoaded ? (
         <Switch>
+          <Route exact path="/text" component={Text} />
           <Route exact path="/record" component={Record} />
-          {/* <Route exact path="/story" component={Story} /> */}
+          <Route exact path="/story" component={Story} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/users" component={Users} />

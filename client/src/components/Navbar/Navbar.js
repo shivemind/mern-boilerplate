@@ -25,6 +25,18 @@ const Navbar = ({ auth, logOutUser, history }) => {
         <li className="nav-item">
           <Link to="/story">Story</Link>
         </li>
+        <li className="nav-item">
+          <Link to="/text">Text</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/background-music">Background-Music</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/send">Send StoryJar</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/play">Open Jar</Link>
+        </li>
         {auth.isAuthenticated ? (
           <>
             <li className="nav-item">

@@ -1,19 +1,26 @@
 import React from "react";
-
-
-
+import Lottie from 'react-lottie';
+import animationData from '../../lotties/christmas-one.json'
 
 export default function App() {
-    const { storyState, ...handlers } = useStory();
-    const { story } = storyState;
-
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+        }
+        };
+    
     return (
-    <section className="story">
-        <h1 className="title">Story-1</h1>
-        <div className="story-container">
-        <StoryControls storyState={storyState} handlers={handlers} />
-        <StoryList story={story} />
+        <div>
+        <Lottie 
+            options={defaultOptions}
+            height={700}
+            width={400}
+        />
         </div>
-    </section>
     );
-}
+    }
+
+
