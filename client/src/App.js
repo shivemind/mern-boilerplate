@@ -21,6 +21,9 @@ import animationData from './lotties/christmas-one.json';
 import Story from './pages/Story/story';
 
 import Text from './pages/Text/christmas-one-text';
+import sendJar from './pages/sendJar/send-jar';
+import createChristmas from './pages/createChristmas/createChristmas';
+import openJar from './pages/openJar/openJar';
 
 
 
@@ -55,6 +58,9 @@ const App = ({ logInUserWithOauth, auth, loadMe }) => {
     <>
       {auth.appLoaded ? (
         <Switch>
+          <Route exact path="/openJar" component={openJar} />
+          <Route exact path="/createChristmas" component={createChristmas} />
+          <Route exact path="/send" component={sendJar} />
           <Route exact path="/text" component={Text} />
           <Route exact path="/record" component={Record} />
           <Route exact path="/story" component={Story} />
