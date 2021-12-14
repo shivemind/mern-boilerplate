@@ -5,7 +5,7 @@ import "./styles.css";
 export default function RecorderControls({ recorderState, handlers }) {
 const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
 const { startRecording, saveRecording, cancelRecording } = handlers;
-
+console.log(recorderState);
 return (
     <div className="controls-container">
     <div className="recorder-display">

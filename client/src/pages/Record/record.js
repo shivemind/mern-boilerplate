@@ -8,6 +8,7 @@ import useRecorder from "../../hooks/useRecorder";
 export default function App() {
     const { recorderState, ...handlers } = useRecorder();
     const { audio } = recorderState;
+    console.log('record handler +++', handlers);
 
     return (
     <section className="voice-recorder">

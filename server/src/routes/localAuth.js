@@ -9,6 +9,7 @@ import { registerSchema } from '../services/validators';
 const router = Router();
 
 router.post('/login', requireLocalAuth, (req, res) => {
+  console.log('login here +++', req.body);
   const token = req.user.generateJWT();
   const me = req.user.toJSON();
   res.json({ token, me });

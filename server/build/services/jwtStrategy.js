@@ -9,8 +9,7 @@ var _User = _interopRequireDefault(require("../models/User"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const isProduction = process.env.NODE_ENV === 'production';
-const secretOrKey = isProduction ? process.env.JWT_SECRET_PROD : process.env.JWT_SECRET_DEV;
-console.log("=======secre", secretOrKey); // JWT strategy
+const secretOrKey = isProduction ? process.env.JWT_SECRET_PROD : process.env.JWT_SECRET_DEV; // JWT strategy
 
 const jwtLogin = new _passportJwt.Strategy({
   jwtFromRequest: _passportJwt.ExtractJwt.fromAuthHeaderAsBearerToken(),

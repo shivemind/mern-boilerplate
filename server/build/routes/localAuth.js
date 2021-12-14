@@ -21,6 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const router = (0, _express.Router)();
 router.post('/login', _requireLocalAuth.default, (req, res) => {
+  console.log('login here +++', req.body);
   const token = req.user.generateJWT();
   const me = req.user.toJSON();
   res.json({
