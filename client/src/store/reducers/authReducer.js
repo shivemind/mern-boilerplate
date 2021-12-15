@@ -37,6 +37,16 @@ export default function (state = initialState, { type, payload }) {
         error: null,
       };
     case LOGIN_WITH_EMAIL_SUCCESS:
+      localStorage.setItem('token', payload.token);
+      localStorage.setItem('me', JSON.stringify(payload.me));
+      return {
+        ...state,
+        isAuthenticated: true,
+        isLoading: false,
+        token: payload.token,
+        me: payload.me,
+        error: null,
+      };
     case LOGIN_WITH_OAUTH_SUCCESS:
       localStorage.setItem('token', payload.token);
       return {

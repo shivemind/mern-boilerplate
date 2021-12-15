@@ -5,7 +5,10 @@ import "./styles.css";
 export default function RecorderControls({ recorderState, handlers }) {
 const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
 const { startRecording, saveRecording, cancelRecording } = handlers;
-console.log(recorderState);
+console.log("recorderState +++", recorderState);
+if (recorderState.audio) {
+    localStorage.setItem('audio', recorderState.audio);
+}
 return (
     <div className="controls-container">
     <div className="recorder-display">
